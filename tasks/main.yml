@@ -1,0 +1,13 @@
+---
+# tasks file for mapr_maprlogin
+
+- name: obtain a MapR ticket for user root
+  sudo_user: root
+  shell: echo {{mapr_user_pw_clear}} | maprlogin password -user mapr 
+  no_log: true
+
+- name: obtain a MapR ticket for user mapr
+  sudo_user: mapr
+  shell: echo {{mapr_user_pw_clear}} | maprlogin password -user mapr 
+  no_log: true
+
