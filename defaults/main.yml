@@ -1,2 +1,6 @@
 ---
 # defaults file for mapr_maprlogin
+
+maprlogin_admin_username: mapr
+maprlogin_username: mapr
+maprlogin_pw_clear: mapr
