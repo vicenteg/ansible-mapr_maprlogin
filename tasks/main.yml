@@ -1,7 +1,15 @@
 ---
 # tasks file for mapr_maprlogin
 
+- name: check to see if we have a ticket
+  command: maprlogin print
+  register: maprlogin_print
+  failed_when: maprlogin_print.rc not in (0, 1)
+  changed_when: false
+
 - name: obtain a MapR ticket for a user
+  sudo: yes
   sudo_user: "{{maprlogin_admin_username}}"
   shell: echo {{maprlogin_pw_clear}} | maprlogin password -user {{maprlogin_username}} 
   no_log: true
+  when: maprlogin_print.rc == 1
