@@ -30,7 +30,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: cluster
       roles:
-         - { role: mapr_maprlogin, when: secure_cluster is defined and secure_cluster == "True" }
+         - { role: mapr_maprlogin, when: secure_cluster is defined and secure_cluster == True }
 
 License
 -------
