@@ -8,8 +8,8 @@
   changed_when: false
 
 - name: obtain a MapR ticket for a user
-  sudo: yes
-  sudo_user: "{{maprlogin_admin_username}}"
+  become: yes
+  become_user: "{{maprlogin_admin_username}}"
   shell: echo {{maprlogin_pw_clear}} | maprlogin password -user {{maprlogin_username}} 
   no_log: true
   when: maprlogin_print.rc == 1
